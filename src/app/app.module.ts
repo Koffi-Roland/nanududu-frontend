@@ -17,6 +17,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SiderComponent } from './layout/sider/sider.component';
 import { ContentComponent } from './layout/content/content.component';
+import { LoginComponent } from './login/login.component';
 
 registerLocaleData(fr);
 
@@ -26,7 +27,8 @@ registerLocaleData(fr);
     HeaderComponent,
     FooterComponent,
     SiderComponent,
-    ContentComponent
+    ContentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

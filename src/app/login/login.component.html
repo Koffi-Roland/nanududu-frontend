@@ -1,0 +1,36 @@
+
+
+  <div nz-row nzJustify="center">
+    <div nz-col nzSpan="12" >
+        <nz-avatar [nzSize]="80" class="login-avatar" nzIcon="user"></nz-avatar>
+        <form nz-form [formGroup]="validateForm" class="login-form sideleft-login "  (ngSubmit)="submitForm()">
+            <nz-form-item class="login-form-margin">
+              <nz-form-control  [nzSm]="24" [nzXs]="24" nzErrorTip="Please input your username!">
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input  formControlName="userName" placeholder="Username" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Please input your Password!">
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input formControlName="password" placeholder="Password" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col [nzSpan]="12">
+                <label nz-checkbox formControlName="remember">
+                  <span>Remember me</span>
+                </label>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <a class="login-form-forgot">Mot de passe oublié?</a>
+              </div>
+            </div>
+            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Se connecter</button>
+            Or <a> S'inscrire! </a>
+          </form>
+    </div>
+    <div nz-col class="sideright-login" nzSpan="12">col-12</div>
+  </div>
