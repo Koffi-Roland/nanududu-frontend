@@ -1,136 +1,135 @@
 .login-form {
-    max-width: 300px;
-  }
+  max-width: 300px;
+}
 
-  .login-form-margin {
-    margin-bottom: 16px;
-  }
+.login-form-margin {
+  margin-bottom: 16px;
+}
 
-  .login-form-forgot {
-    float: right;
-  }
+.login-form-forgot {
+  float: right;
+}
 
-  .login-form-button {
-    width: 100%;
-  }
-  .sideright-login{
-      background-color: #1890ff;
-      height:100vh;
-  }
-  
-
-  .login-avatar{
+.login-form-button {
+  width: 100%;
+}
+.sideright-login{
     background-color: #1890ff;
-   /* margin: 16px 16px 24px 16px;
-    background-position: center;*/
-    margin-top: 50px;
-    margin-left:50px;
-            margin-bottom: 15px;
+    height:100vh;
+}
 
+
+.login-avatar{
+  background-color: #1890ff;
+ /* margin: 16px 16px 24px 16px;
+  background-position: center;*/
+  margin-top: 50px;
+  margin-left:50px;
+          margin-bottom: 15px;
+
+}
+@media (min-width: 521px) { 
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:50px;
   }
-  @media (min-width: 521px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:50px;
-    }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:100px;
-        margin-bottom: 15px;
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:100px;
+      margin-bottom: 15px;
 
-      }
- }
-  
+    }
+}
+
 @media (min-width: 575.98px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:120px;
-    }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:150px;
-        margin-bottom: 15px;
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:50px;
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:150px;
+      margin-bottom: 15px;
 
-      }
- }
+    }
+}
 
 @media (min-width: 767.98px) {
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:50px;
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:50px;
+
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:150px;
+      margin-bottom: 15px;
 
     }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:150px;
-        margin-bottom: 15px;
-
-      }
 }
 
 @media (min-width: 991.98px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:50px;
-        margin-bottom: 15px;
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:50px;
+      margin-bottom: 15px;
 
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-bottom: 15px;
+      margin-left:200px;
     }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-bottom: 15px;
-        margin-left:200px;
-      }
- }
+}
 @media (min-width: 1199.98px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:120px;
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:120px;
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:230px;
     }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:230px;
-      }
- }
+}
 
- @media (min-width: 1024px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:150px;
+@media (min-width: 1024px) { 
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:150px;
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:230px;
     }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:230px;
-      }
- }
- @media (min-width: 1356px) { 
-    .sideleft-login{
-        margin-top: 50px;
-        margin-left:150px;
+}
+@media (min-width: 1356px) { 
+  .sideleft-login{
+      margin-top: 50px;
+      margin-left:150px;
+  }
+  .login-avatar{
+      background-color: #1890ff;
+     /* margin: 16px 16px 24px 16px;
+      background-position: center;*/
+      margin-top: 50px;
+      margin-left:230px;
     }
-    .login-avatar{
-        background-color: #1890ff;
-       /* margin: 16px 16px 24px 16px;
-        background-position: center;*/
-        margin-top: 50px;
-        margin-left:230px;
-      }
- }
- 
+}

@@ -1,7 +1,7 @@
 
-
-  <div nz-row nzJustify="center">
+  <div nz-row >
     <div nz-col nzSpan="12" >
+
         <nz-avatar [nzSize]="80" class="login-avatar" nzIcon="user"></nz-avatar>
         <form nz-form [formGroup]="validateForm" class="login-form sideleft-login "  (ngSubmit)="submitForm()">
             <nz-form-item class="login-form-margin">
@@ -28,8 +28,8 @@
                 <a class="login-form-forgot">Mot de passe oublié?</a>
               </div>
             </div>
-            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Se connecter</button>
-            Or <a> S'inscrire! </a>
+            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" >Se connecter</button>
+            Or <a (click)="goToRegister()"> S'inscrire! </a>
           </form>
     </div>
     <div nz-col class="sideright-login" nzSpan="12">col-12</div>

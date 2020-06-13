@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +20,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SiderComponent } from './layout/sider/sider.component';
 import { ContentComponent } from './layout/content/content.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 registerLocaleData(fr);
 
@@ -28,7 +32,9 @@ registerLocaleData(fr);
     FooterComponent,
     SiderComponent,
     ContentComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    PageNotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,9 @@ registerLocaleData(fr);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScrollingModule,
+    DragDropModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent]
