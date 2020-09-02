@@ -12,7 +12,7 @@ let _maxSize = 5;
 let _currentPageNumber = 1;
 let _tempAttente = 60000;
 let _timeout = 5000;
-let _serverUrl: string = '';
+let _serverUrl: string = 'localhost:8000/api';
 let _langs: string = 'fr';
 
 export const _SIZE = size;

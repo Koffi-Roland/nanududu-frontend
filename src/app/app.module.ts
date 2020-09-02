@@ -22,6 +22,10 @@ import { ContentComponent } from './layout/content/content.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
+import { ListComponent } from './user/list/list.component';
+import { UpdateComponent } from './user/update/update.component';
+import { UserService } from './user/service/user.service';
+import { AppConfig } from './app-config';
 
 registerLocaleData(fr);
 
@@ -34,7 +38,9 @@ registerLocaleData(fr);
     ContentComponent,
     LoginComponent,
     RegisterComponent,
-    PageNotfoundComponent
+    PageNotfoundComponent,
+    ListComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ registerLocaleData(fr);
     ScrollingModule,
     DragDropModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: fr_FR }],
+  providers: [{ provide: NZ_I18N, useValue: fr_FR },UserService,AppConfig,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
