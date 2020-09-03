@@ -16,15 +16,16 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+
   {
-    path: 'list',
-    component: ListComponent
+    path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: '**',
     component: PageNotfoundComponent
   },
- 
+
+
 ];
 
 @NgModule({
