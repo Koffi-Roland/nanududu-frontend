@@ -3,29 +3,34 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './update/update.component';
 import { DetailsComponent } from './details/details.component';
+import { UserComponent } from './user.component';
 
 
- export const routes: Routes = [
-    
-   
+export const routes: Routes = [
+
+  {
+    path: '',component: UserComponent, 
+
+    children: [
       {
-          path: 'list',
-          component: ListComponent,
+        path: 'list',
+        component: ListComponent,
       },
       {
         path: 'update',
-        component: UpdateComponent, 
-    },
-    {
+        component: UpdateComponent,
+      },
+      {
         path: 'details/:id',
-        component: DetailsComponent, 
-    },
-    {
-      path: '**',
-      redirectTo: 'list'
+        component: DetailsComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'list'
+      }
+    ]
   }
-   
-  ];
+];
 
 
 

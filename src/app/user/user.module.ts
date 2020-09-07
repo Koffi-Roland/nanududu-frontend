@@ -5,14 +5,15 @@ import { ListComponent } from './list/list.component';
 import { UserService } from './service/user.service';
 import { UpdateComponent } from './update/update.component';
 import { DetailsComponent } from './details/details.component';
+import { UserComponent } from './user.component';
 
 
 @NgModule({
   imports: [UserRoutingModule,CommonModule,],
-  declarations: [ListComponent,UpdateComponent, DetailsComponent],
+  declarations: [UserComponent,ListComponent,UpdateComponent, DetailsComponent],
   providers: [UserService],
 
  
-  exports: []
+  exports: [UserComponent]
 })
 export class UserModule { }
