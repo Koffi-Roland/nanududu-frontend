@@ -1,11 +1,14 @@
 <app-header></app-header>
-
+<!-- from https://ng.ant.design/components/carousel/en-->
 <nz-carousel nzAutoPlay>
     <div nz-carousel-content *ngFor="let index of array">
       <h3>1</h3>
     </div>
   </nz-carousel>
+  <!-- endfrom -->
+
   <div class="container-fluid mb-5">
+<!-- from https://ng.ant.design/components/card/en-->
 
     <nz-divider nzOrientation="center" nzText="Publication"></nz-divider>
 
@@ -186,10 +189,13 @@
             <i nz-icon nzType="ellipsis"></i>
         </ng-template>
     </div>
-  
+  <!-- endfrom -->
+
 </div>
 <div class="mt-5" >
+    <!-- from  https://ng.ant.design/components/statistic/en-->
 
+   
 <nz-divider nzOrientation="center" nzText="like" style="margin-top:50px"></nz-divider>
 
 <nz-row [nzGutter]="16" class="mt-5 mb-5">
@@ -208,8 +214,11 @@
         <nz-statistic [nzValue]="93" [nzTitle]="'Unmerged'" [nzSuffix]="'/ 100'"></nz-statistic>
       </nz-col>
   </nz-row>
+  <!--endfrom-->
   </div>
 </div>
 
-  
+    <!--from bootstrap-->
+
 <app-footer></app-footer>
+    <!--endfrom-->
