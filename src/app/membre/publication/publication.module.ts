@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserRoutingModule } from './user-routing.module';
 import { ListComponent } from './list/list.component';
 import { UserService } from './service/user.service';
 import { UpdateComponent } from './update/update.component';
 import { DetailsComponent } from './details/details.component';
-import { UserComponent } from './user.component';
-import { AppModule } from '../app.module';
+import { PublicationRoutingModule } from './publication-routing.module';
+
 
 
 @NgModule({
-  imports: [UserRoutingModule,CommonModule],
-  declarations: [UserComponent,ListComponent,UpdateComponent, DetailsComponent],
+  imports: [PublicationRoutingModule,CommonModule],
+  declarations: [ListComponent,UpdateComponent, DetailsComponent],
   providers: [UserService],
-  exports: [UserComponent]
+  exports: []
 })
-export class UserModule { }
+export class PublicationModule { }

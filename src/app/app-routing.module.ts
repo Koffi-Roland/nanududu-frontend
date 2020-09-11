@@ -22,7 +22,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+    path: 'membre', loadChildren: () => import('./membre/membre.module').then(m => m.MembreModule)
   },
   {
     path: '**',
