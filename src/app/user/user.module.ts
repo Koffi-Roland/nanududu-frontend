@@ -6,14 +6,13 @@ import { UserService } from './service/user.service';
 import { UpdateComponent } from './update/update.component';
 import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user.component';
+import { AppModule } from '../app.module';
 
 
 @NgModule({
-  imports: [UserRoutingModule,CommonModule,],
+  imports: [UserRoutingModule,CommonModule],
   declarations: [UserComponent,ListComponent,UpdateComponent, DetailsComponent],
   providers: [UserService],
-
- 
   exports: [UserComponent]
 })
 export class UserModule { }

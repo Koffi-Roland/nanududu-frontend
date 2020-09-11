@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 import { AppConfig } from './app-config';
+import { AccueilComponent } from './accueil/accueil.component';
 
 registerLocaleData(fr);
 
@@ -37,6 +38,7 @@ registerLocaleData(fr);
     LoginComponent,
     RegisterComponent,
     PageNotfoundComponent,
+    AccueilComponent,
     
   ],
   imports: [
@@ -49,8 +51,10 @@ registerLocaleData(fr);
     HttpClientModule,
     BrowserAnimationsModule,
     ScrollingModule,
-    DragDropModule
+    DragDropModule,
   ],
+  exports: [ HeaderComponent,FooterComponent,SiderComponent, ContentComponent,],
+
   providers: [{ provide: NZ_I18N, useValue: fr_FR },AppConfig],
   bootstrap: [AppComponent]
 })

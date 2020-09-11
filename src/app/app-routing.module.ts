@@ -3,18 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
-import { ListComponent } from './user/list/list.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'accueil',
+    component: AccueilComponent
   },
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
 
   {
