@@ -140,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "nanududu-frontend"
+  "defaultProject": "nanududu-frontend",
+  "cli": {
+    "analytics": "0d044784-d5d4-4048-a3a4-ef6e58aebeee"
+  }
 }
