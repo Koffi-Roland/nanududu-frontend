@@ -25,6 +25,8 @@ import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 import { AppConfig } from './app-config';
 import { AccueilComponent } from './accueil/accueil.component';
+import { PublicationComponent } from './publication/publication.component';
+import { PartenaireComponent } from './partenaire/partenaire.component';
 
 registerLocaleData(fr);
 
@@ -39,6 +41,8 @@ registerLocaleData(fr);
     RegisterComponent,
     PageNotfoundComponent,
     AccueilComponent,
+    PublicationComponent,
+    PartenaireComponent,
     
   ],
   imports: [
