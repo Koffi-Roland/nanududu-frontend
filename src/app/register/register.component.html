@@ -1,16 +1,30 @@
 
-  <div nz-row >
+  <div nz-row  >
     <div nz-col nzSpan="12" >
-        <h1 nz-typography class="title-accueil" >Inscrivez-vous </h1>
+        <h1 class="text-center title-accueil" >Inscrivez-vous </h1>
 
         <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)" class="form-register">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="7" nzRequired>Username</nz-form-label>
+            <!--nom-->
+          <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Nom</nz-form-label>
               <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
-                <input nz-input formControlName="userName" placeholder="username" />
+                <input nz-input formControlName="nom" placeholder="nom" />
                 <ng-template #userErrorTpl let-control>
                   <ng-container *ngIf="control.hasError('required')">
-                    Please input your username!
+                   Svp entrer votre nom!
+                  </ng-container>
+                 
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+             <!--prenom-->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Prenom</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                <input nz-input formControlName="prenom" placeholder="prenom" />
+                <ng-template #userErrorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                    Svp entrer votre prenom!
                   </ng-container>
                   <ng-container *ngIf="control.hasError('duplicated')">
                     The username is redundant!
@@ -18,7 +32,58 @@
                 </ng-template>
               </nz-form-control>
             </nz-form-item>
-            <nz-form-item>
+
+              <!--identifiant-->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="7" nzRequired>Identifiant</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                  <input nz-input formControlName="identifiant" placeholder="username" />
+                  <ng-template #userErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                     Svp entrer un identifiant!
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('duplicated')">
+                      The username is redundant!
+                    </ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="7" nzRequired>Mot de passe</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Svp entrer un mot de passe!">
+                  <input nz-input type="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="7" nzRequired>Confirm mot de passe</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+                  <input nz-input type="password" formControlName="confirm" placeholder="confirmer votre mot de passe" />
+                  <ng-template #passwordErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                    Svp confirmer votre mot de passe!
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('confirm')">
+                      Mot de pas non conforme!
+                    </ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+                <!--Telephone-->
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="7" nzRequired>Téléphone</nz-form-label>
+                  <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                    <input nz-input formControlName="telephone" placeholder="username" />
+                    <ng-template #userErrorTpl let-control>
+                      <ng-container *ngIf="control.hasError('required')">
+                       Svp entrer votre numero de télephone!
+                      </ng-container>
+                      <ng-container *ngIf="control.hasError('duplicated')">
+                        The username is redundant!
+                      </ng-container>
+                    </ng-template>
+                  </nz-form-control>
+                </nz-form-item>
+         <!--   <nz-form-item>
               <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
               <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
                 <input nz-input formControlName="email" placeholder="email" type="email" />
@@ -31,30 +96,11 @@
                   </ng-container>
                 </ng-template>
               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSpan]="7" nzRequired>Password</nz-form-label>
-              <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your password!">
-                <input nz-input type="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
-              <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
-                <input nz-input type="password" formControlName="confirm" placeholder="confirm your password" />
-                <ng-template #passwordErrorTpl let-control>
-                  <ng-container *ngIf="control.hasError('required')">
-                    Please confirm your password!
-                  </ng-container>
-                  <ng-container *ngIf="control.hasError('confirm')">
-                    Password is inconsistent!
-                  </ng-container>
-                </ng-template>
-              </nz-form-control>
-            </nz-form-item>
+            </nz-form-item>-->
+            
             <nz-form-item>
                 <nz-form-label [nzSpan]="7" nzFor="gender" nzRequired>Gender</nz-form-label>
-                <nz-form-control [nzSpan]="12" nzErrorTip="Please select your gender!">
+                <nz-form-control [nzSpan]="12" nzErrorTip="Selection du genre!">
                   <nz-select
                     id="gender"
                     formControlName="gender"

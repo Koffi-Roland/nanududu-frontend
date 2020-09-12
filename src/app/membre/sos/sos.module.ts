@@ -5,12 +5,13 @@ import { ListComponent } from './list/list.component';
 import { SosService } from './service/sos.service';
 import { UpdateComponent } from './update/update.component';
 import { DetailsComponent } from './details/details.component';
+import { CreateComponent } from '../sos/create/create.component';
 
 
 
 @NgModule({
   imports: [SosRoutingModule,CommonModule],
-  declarations: [ListComponent,UpdateComponent, DetailsComponent],
+  declarations: [ListComponent,UpdateComponent, DetailsComponent,CreateComponent],
   providers: [SosService],
   exports: [ListComponent,UpdateComponent, DetailsComponent]
 })

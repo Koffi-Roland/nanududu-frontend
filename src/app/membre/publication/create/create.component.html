@@ -1,0 +1,45 @@
+
+ <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Libelle</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+          <input nz-input formControlName="libelle" placeholder="username" />
+          <ng-template #userErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+             Svp entrer un identifiant!
+            </ng-container>
+            <ng-container *ngIf="control.hasError('duplicated')">
+              The username is redundant!
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Description</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please write something here!">
+          <textarea formControlName="description" nz-input rows="2" placeholder="description"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date Debut </nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-date-picker nzShowTime formControlName="date"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date Expiration </nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-date-picker nzShowTime formControlName="expiration"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
+        <button nz-button nzType="primary">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
