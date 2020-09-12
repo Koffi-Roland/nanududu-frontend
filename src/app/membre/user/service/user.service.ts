@@ -13,14 +13,14 @@ export class UserService {
   constructor(private http: HttpClient, private option: AbstractService, private appConfig: AppConfig) { }
 
 
-  registerUrl: string = "register"
-  userUrl: string = "user"
+  registerUrl: string = "ajout"
+  userUrl: string = "personnephysique"
 
   getUrl(url: string) {
     return this.appConfig.baseApiPath + url;
   }
 
-  public amegbeto(user: User): Observable<HttpResponse<User>> {
+  public ajouter(user: User): Observable<HttpResponse<User>> {
 
     console.log("my url " + this.getUrl(this.registerUrl));
 

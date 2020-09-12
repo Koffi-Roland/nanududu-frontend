@@ -1,18 +1,18 @@
 export interface IUser {
     id: number;
-    username: string;
+    identifiant: string;
     telephone: string;
     roles: any[];
-    password: string;
-    firstname: string;
-    email?: string;
-    lastname: string;
-    country?: string;
+    motDePasse: string;
+    nom: string;
+    adresse?: string;
+    prenom: string;
+    aggree?: boolean;
     ville?: string;
-    longitude?: string;
-    latitude?: string;
-    created_at?: string;
-    updated_at?: string;
-    token?: string;
+   // longitude?: string;
+    //latitude?: string;
+    //created_at?: string;
+   //updated_at?: string;
+   // token?: string;
 
 }

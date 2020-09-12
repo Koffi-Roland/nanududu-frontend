@@ -3,29 +3,29 @@ import { IUser } from './user.interface';
 export class User implements IUser {
 
     public id: number;
-    public username: string;
+    public identifiant: string;
     public telephone: string;
     public roles: any[];
-    public password: string;
-    public firstname: string;
-    public email?: string;
-    public lastname: string;
-    public country?: string;
+    public motDePasse: string;
+    public nom: string;
+    public adresse?: string;
+    public prenom: string;
+    public aggree?: boolean;
     public ville?: string;
-    public longitude?: string;
-    public latitude?: string;
-    public created_at?: string;
-    public updated_at?: string;
-    public token?: string;
 
-    constructor(user:IUser) {
-        this.id=user.id;
-        this.firstname=user.firstname;
-        this.lastname=user.lastname;
-        this.email=user.email;
-        this.roles=user.roles;
-        this.password=user.password;
-        this.telephone=user.telephone;
+
+    constructor(user: IUser) {
+        this.id = user.id;
+        this.identifiant = user.identifiant;
+        this.telephone = user.telephone;
+        this.motDePasse = user.motDePasse;
+        this.roles = user.roles;
+        this.nom = user.nom;
+        this.adresse = user.adresse;
+        this.prenom = user.prenom;
+        this.aggree = user.aggree;
+        this.ville = user.ville;
+
 
     }
 
