@@ -67,7 +67,6 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
-
 import { AlertService } from './service/alert.service';
 import { MessageService } from './service/message.service';
 @NgModule({

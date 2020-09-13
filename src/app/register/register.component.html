@@ -72,7 +72,7 @@
                 <nz-form-item>
                   <nz-form-label [nzSpan]="7" nzRequired>Téléphone</nz-form-label>
                   <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
-                    <input nz-input formControlName="telephone" placeholder="username" />
+                    <input nz-input formControlName="telephone" placeholder="téléphone" />
                     <ng-template #userErrorTpl let-control>
                       <ng-container *ngIf="control.hasError('required')">
                        Svp entrer votre numero de télephone!

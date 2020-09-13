@@ -25,18 +25,36 @@
       </nz-form-item>
     
     <nz-form-item>
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date Debut </nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-form-label [nzSm]="7" [nzXs]="8" nzRequired>Date Debut </nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24">
         <nz-date-picker nzShowTime formControlName="date"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date Expiration </nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-form-label [nzSm]="7" [nzXs]="8" nzRequired>Date Expiration </nz-form-label>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
           <nz-date-picker nzShowTime formControlName="expiration"></nz-date-picker>
         </nz-form-control>
       </nz-form-item>
-  
+      <nz-form-item>
+       <!--<nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>image </nz-form-label>--> 
+
+      <nz-upload 
+      class="avatar-uploader"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      nzName="avatar"
+      nzListType="picture-card"
+      [nzShowUploadList]="false"
+      [nzBeforeUpload]="beforeUpload"
+      (nzChange)="handleChange($event)">
+      <ng-container *ngIf="!avatarUrl">
+        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+        <div class="ant-upload-text">Image</div>
+      </ng-container>
+      <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+    </nz-upload>
+</nz-form-item>
+
     <nz-form-item>
       <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
         <button nz-button nzType="primary">Submit</button>
