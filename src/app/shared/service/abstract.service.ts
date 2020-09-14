@@ -12,7 +12,7 @@ export class AbstractService {
   }
 
   getOption() {
-    const token = localStorage.retrieve('authenticationToken') ;
+   /* const token = localStorage.retrieve('authenticationToken') ;
     if (token === null) {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,7 +24,13 @@ export class AbstractService {
             headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token })
         }
         return httpOptions;
+    }*/
+
+    const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
+
+    return httpOptions;
 }
 getHeaderString() {
     const token = localStorage.retrieve('authenticationToken') ;

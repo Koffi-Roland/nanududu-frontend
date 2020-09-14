@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient, private option: AbstractService, private appConfig: AppConfig) { }
 
 
-  registerUrl: string = "ajout"
+ // registerUrl: string = "ajout"
   userUrl: string = "personnephysique"
 
   getUrl(url: string) {
@@ -22,9 +22,9 @@ export class UserService {
 
   public ajouter(user: User): Observable<HttpResponse<User>> {
 
-    console.log("my url " + this.getUrl(this.registerUrl));
+    console.log("my url " + this.getUrl(this.userUrl));
 
-    return this.http.post<User>(this.getUrl(this.registerUrl), user, { headers: this.option.getOption().headers, observe: 'response' });
+    return this.http.post<User>(this.getUrl(this.userUrl+'/ajout'), user, { headers: this.option.getOption().headers, observe: 'response' });
   }
 
 

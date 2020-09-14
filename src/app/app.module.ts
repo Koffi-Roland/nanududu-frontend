@@ -27,6 +27,9 @@ import { AppConfig } from './app-config';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PublicationComponent } from './publication/publication.component';
 import { PartenaireComponent } from './partenaire/partenaire.component';
+import { LoginService } from './login/login.service';
+import { UserService } from './membre/user/service/user.service';
+import { PublicationService } from './membre/publication/service/publication.service';
 
 registerLocaleData(fr);
 
@@ -59,7 +62,7 @@ registerLocaleData(fr);
   ],
   exports: [ HeaderComponent,FooterComponent,SiderComponent, ContentComponent,],
 
-  providers: [{ provide: NZ_I18N, useValue: fr_FR },AppConfig],
+  providers: [{ provide: NZ_I18N, useValue: fr_FR },AppConfig,LoginService,UserService,PublicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

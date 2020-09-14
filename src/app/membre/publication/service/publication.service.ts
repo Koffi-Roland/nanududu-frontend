@@ -31,6 +31,11 @@ export class PublicationService {
     return this.http.get<Publication[]>(this.getUrl(this.publicationUrl + '/list'));
 
   }
+
+  public  getLastPublication<Response>() {
+    return this.http.get<Publication[]>(this.getUrl(this.publicationUrl + '/list/derniere'));
+
+  }
   public getOnePublication<Response>(id: number) {
     return this.http.get(this.getUrl(this.publicationUrl + '/details' + `?id=${id}`), { headers: this.option.getOption().headers, observe: 'response' });
 

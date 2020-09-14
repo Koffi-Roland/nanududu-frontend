@@ -3,21 +3,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { AppConfig } from '../app-config';
+import { AbstractService } from '../shared/service/abstract.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private currentUserSubject: BehaviorSubject<any>;
+
   public currentUser: Observable<any>;
-  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) {
+  constructor( private appConfig:AppConfig,
+    private option: AbstractService,private router: Router, private route: ActivatedRoute, private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    
+
+  
   }
 
 
-  login(username, password) {
-    return this.http.post<any>('api/users/authenticate', { username, password })
+  login(identifiant, motDePasse) {
+    return this.http.post<any>(this.appConfig.baseApiPath+'login', { identifiant, motDePasse })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -33,15 +38,15 @@ export class LoginService {
   }
 
   getUser() {
-    return JSON.parse(localStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   setUser(user: any) {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   clearUser() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
   }
 
   hasAnyRole(roles: string[]) {
@@ -56,7 +61,7 @@ export class LoginService {
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('user') ? true : false;
+    return localStorage.getItem('currentUser') ? true : false;
   }
 
   getStoredToken(): string | null {

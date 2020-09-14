@@ -4,17 +4,20 @@
 
         <nz-avatar [nzSize]="80" class="login-avatar" nzIcon="user"></nz-avatar>
         <form nz-form [formGroup]="validateForm" class="login-form sideleft-login "  (ngSubmit)="submitForm()">
-            <nz-form-item class="login-form-margin">
-              <nz-form-control  [nzSm]="24" [nzXs]="24" nzErrorTip="Please input your username!">
+          <span class="text-center mb-3" *ngIf="errMsg">{{msg}}</span>
+
+          
+          <nz-form-item class="login-form-margin">
+              <nz-form-control  [nzSm]="24" [nzXs]="24" nzErrorTip="Entrer votre identifiant!">
                 <nz-input-group nzPrefixIcon="user">
-                  <input type="text" nz-input  formControlName="userName" placeholder="Username" />
+                  <input type="text" nz-input  formControlName="identifiant" placeholder="Identifiant" />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item>
-              <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Please input your Password!">
+              <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Entrer votre mode de passe!">
                 <nz-input-group nzPrefixIcon="lock">
-                  <input type="password" nz-input formControlName="password" placeholder="Password" />
+                  <input type="password" nz-input formControlName="motDePasse" placeholder="Mot de passe" />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>

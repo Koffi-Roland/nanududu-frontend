@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ValidationErrors, FormBuilder, Validators } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
+import { User } from '../membre/user/model/user';
+import { UserService } from '../membre/user/service/user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +11,61 @@ import { Observable, Observer } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
 
-  
-
   validateForm: FormGroup;
+  nom:string;
+  value:any;
+  _roles=["ROLE_USER"];
+  user: User = new User(null);
+  constructor(private fb: FormBuilder,private userService:UserService) {
+
+    this.validateForm = this.fb.group({
+      nom: ['', [Validators.required]],
+      prenom: ['', [Validators.required]],
+      identifiant: ['', [Validators.required]],
+      telephone: ['', [Validators.required]],
+      adresse: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      confirm: ['', [this.confirmValidator]],
+      gender: [null, [Validators.required]],
+      agree: [false,[Validators.required]]
+    });
+  }
 
   ngOnInit(): void {
   }
-  submitForm(value: { userName: string; email: string; password: string; confirm: string; comment: string }): void {
+  submitForm(): void {
     for (const key in this.validateForm.controls) {
       this.validateForm.controls[key].markAsDirty();
       this.validateForm.controls[key].updateValueAndValidity();
     }
-    console.log(value);
+   // this.nom=this.value
+ // console.log() ;
+
+
+
+    this.user.nom= this.validateForm.controls['nom'].value;
+    this.user.identifiant=this.validateForm.controls['identifiant'].value;;
+    this.user.prenom=this.validateForm.controls['prenom'].value;
+    this.user.telephone=this.validateForm.controls['telephone'].value;
+    this.user.motDePasse=this.validateForm.controls['password'].value;
+    this.user.adresse=this.validateForm.controls['adresse'].value;
+
+    this.user.roles=this._roles;
+    this.user.aggree=this.validateForm.controls['agree'].value;
+
+    console.log(JSON.stringify(this.user));
+    try {
+      this.userService.ajouter(this.user).subscribe(
+        res => {
+          this.validateForm.reset();
+          console.log(res);
+        }, error => {
+          console.error(error);
+        }
+      );
+    } catch (error) {
+      console.log("exception e = " + error);
+    }
   }
 
   resetForm(e: MouseEvent): void {
@@ -58,16 +103,5 @@ export class RegisterComponent implements OnInit {
     return {};
   };
 
-  constructor(private fb: FormBuilder) {
-    this.validateForm = this.fb.group({
-      nom: ['', [Validators.required]],
-      prenom: ['', [Validators.required]],
-      identifiant: ['', [Validators.required]],
-      telephone: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirm: ['', [this.confirmValidator]],
-      gender: [null, [Validators.required]],
-      agree: [false]
-    });
-  }
+ 
 }

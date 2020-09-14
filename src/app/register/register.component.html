@@ -3,7 +3,7 @@
     <div nz-col nzSpan="12" >
         <h1 class="text-center title-accueil" >Inscrivez-vous </h1>
 
-        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)" class="form-register">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="form-register">
             <!--nom-->
           <nz-form-item>
               <nz-form-label [nzSpan]="7" nzRequired>Nom</nz-form-label>
@@ -37,7 +37,7 @@
               <nz-form-item>
                 <nz-form-label [nzSpan]="7" nzRequired>Identifiant</nz-form-label>
                 <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
-                  <input nz-input formControlName="identifiant" placeholder="username" />
+                  <input nz-input formControlName="identifiant" placeholder="identifiant" />
                   <ng-template #userErrorTpl let-control>
                     <ng-container *ngIf="control.hasError('required')">
                      Svp entrer un identifiant!
@@ -83,6 +83,21 @@
                     </ng-template>
                   </nz-form-control>
                 </nz-form-item>
+                  <!--adresse-->
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Adresse</nz-form-label>
+                    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                      <input nz-input formControlName="adresse" placeholder="adressse" />
+                      <ng-template #userErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                         Svp entrer votre adresse!
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('duplicated')">
+                          The username is redundant!
+                        </ng-container>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
          <!--   <nz-form-item>
               <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
               <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">

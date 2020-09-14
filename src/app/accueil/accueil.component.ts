@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Publication } from '../membre/publication/model/publication';
+import { PublicationService } from '../membre/publication/service/publication.service';
 
 @Component({
   selector: 'app-accueil',
@@ -7,13 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
   array = [1, 2, 3, 4];
-
-  constructor() {
+  lastPublication:Publication[];
+  statusCode: any;
+  constructor(private publicationService:PublicationService) {
 
    }
 
   ngOnInit(): void {
+    this.getLastPublication();
 
+  }
+
+
+  getLastPublication():Publication[]{
+    this.publicationService.getLastPublication()
+    .subscribe(
+      data => this.lastPublication = data,
+      errorCode => this.statusCode = errorCode);
+  return this.lastPublication;
   }
 
 }

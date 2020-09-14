@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
 import { UploadFile } from 'ng-zorro-antd/upload';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { Publication } from '../model/publication';
+import { PublicationService } from '../service/publication.service';
 
 @Component({
   selector: 'app-create',
@@ -13,7 +15,9 @@ export class CreateComponent implements OnInit {
   validateForm!: FormGroup;
   loading = false;
   avatarUrl?: string;
-  constructor(private fb: FormBuilder,private msg: NzMessageService) { }
+  publication: Publication = new Publication(null);
+
+  constructor(private publicationService: PublicationService,private fb: FormBuilder,private msg: NzMessageService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -27,7 +31,28 @@ export class CreateComponent implements OnInit {
   }
   submitForm(): void {
     console.log(this.validateForm.value);
+    this.publication.libelle= this.validateForm.controls['libelle'].value;
+    this.publication.description=this.validateForm.controls['description'].value;;
+    this.publication.date=this.validateForm.controls['date'].value;
+    this.publication.date=this.validateForm.controls['expiration'].value;
+
+    console.log(JSON.stringify(this.publication));
+    try {
+      this.publicationService.ajouter(this.publication).subscribe(
+        res => {
+          this.validateForm.reset();
+          console.log(res);
+        }, error => {
+          console.error(error);
+        }
+      );
+    } catch (error) {
+      console.log("exception e = " + error);
+    }
+
   }
+
+
 
 
   beforeUpload = (file: UploadFile, _fileList: UploadFile[]) => {
@@ -40,7 +65,7 @@ export class CreateComponent implements OnInit {
       }
       const isLt2M = file.size! / 1024 / 1024 < 2;
       if (!isLt2M) {
-        this.msg.error('Image must smaller than 2MB!');
+        this.msg.error('Image doit être moins de  2MB!');
         observer.complete();
         return;
       }

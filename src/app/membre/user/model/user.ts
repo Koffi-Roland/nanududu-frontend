@@ -1,6 +1,6 @@
 import { IUser } from './user.interface';
 
-export class User implements IUser {
+export class User /*implements IUser*/ {
 
     public id: number;
     public identifiant: string;
@@ -14,9 +14,10 @@ export class User implements IUser {
     public ville?: string;
 
 
-    constructor(user: IUser) {
-        this.id = user.id;
-        this.identifiant = user.identifiant;
+    constructor(id: any) {
+            this.id = id ? id : null;
+           
+              /*  this.identifiant = user.identifiant;
         this.telephone = user.telephone;
         this.motDePasse = user.motDePasse;
         this.roles = user.roles;
@@ -24,10 +25,12 @@ export class User implements IUser {
         this.adresse = user.adresse;
         this.prenom = user.prenom;
         this.aggree = user.aggree;
-        this.ville = user.ville;
+        this.ville = user.ville;*/
 
 
     }
+
+
 
 
 }
