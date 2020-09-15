@@ -1,2 +1,25 @@
-<p> taglist works!</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       <!-- <th scope="col">#</th>-->
+        <th scope="col">Libelle</th>
+        <th scope="col">Description</th>
+        <th scope="col">Option</th>
 
+       
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tag of allTag">
+        <!--<th scope="row"></th>-->
+        <td>{{tag.libelle}}</td>
+        <td>{{tag.description}}</td>
+        <th scope="col">#</th>
+
+       
+      </tr>
+    </tbody>
+  </table>
+  
+ 

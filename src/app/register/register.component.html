@@ -3,6 +3,23 @@
     <div nz-col nzSpan="12" >
         <h1 class="text-center title-accueil" >Inscrivez-vous </h1>
 
+        <div class="row">
+          <div class="col-8 col-sm-8 nanududu-offset-register">
+            <div  class="alert alert-success alert-dismissible fade show" role="alert">
+              <span>{{_msg}}</span>&nbsp;&nbsp;<a [routerLink]="['/login']" class="alert-link"><strong>Connexion</strong></a>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div *ngIf="verifErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>{{_msg}}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="form-register">
             <!--nom-->
           <nz-form-item>

@@ -14,9 +14,9 @@
 
     <nz-divider nzOrientation="center" nzText="Publication"></nz-divider>
 
-<div nz-row  *ngFor="let publication of lastPublication"  [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }" >
+<div nz-row    [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }" >
 
-    <div nz-col class="gutter-row" [nzSpan]="6"  style="margin-bottom:50px;">
+    <div  nz-col class="gutter-row" *ngFor="let publication of lastPublication"  [nzSpan]="6"  style="margin-bottom:50px;">
         <nz-card  [nzCover]="coverTemplate"
             [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
             <nz-card-meta nzTitle="{{publication.libelle}}" nzDescription="{{publication.description}}" >

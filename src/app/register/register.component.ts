@@ -16,6 +16,9 @@ export class RegisterComponent implements OnInit {
   value:any;
   _roles=["ROLE_USER"];
   user: User = new User(null);
+  _msg:any;
+  verifSuccessMsg=false;
+  verifErrorMsg=false;
   constructor(private fb: FormBuilder,private userService:UserService) {
 
     this.validateForm = this.fb.group({
@@ -38,10 +41,6 @@ export class RegisterComponent implements OnInit {
       this.validateForm.controls[key].markAsDirty();
       this.validateForm.controls[key].updateValueAndValidity();
     }
-   // this.nom=this.value
- // console.log() ;
-
-
 
     this.user.nom= this.validateForm.controls['nom'].value;
     this.user.identifiant=this.validateForm.controls['identifiant'].value;;
@@ -55,11 +54,15 @@ export class RegisterComponent implements OnInit {
 
     console.log(JSON.stringify(this.user));
     try {
-      this.userService.ajouter(this.user).subscribe(
+      this.userService.add(this.user).subscribe(
         res => {
           this.validateForm.reset();
+          this._msg="Ajout effectué avec success";
+          this.verifSuccessMsg=true;
           console.log(res);
         }, error => {
+          this.verifErrorMsg=true;
+          this._msg="Erreur d'execution de la requête. Veuillez verifier vos informations";
           console.error(error);
         }
       );

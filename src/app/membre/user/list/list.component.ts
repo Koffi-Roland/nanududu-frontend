@@ -22,8 +22,7 @@ export class ListComponent implements OnInit {
       .subscribe(
         data => this.allUser = data,
         errorCode => this.statusCode = errorCode);
-        console.log("g"+this.allUser);
-        console.log("oooooooooooooooooooooo");
+      
     return this.allUser;
   }
 

@@ -19,7 +19,7 @@ export class PublicationService {
     return this.appConfig.baseApiPath + url;
   }
 
-  public ajouter(publication: Publication): Observable<HttpResponse<Publication>> {
+  public add(publication: Publication): Observable<HttpResponse<Publication>> {
 
     console.log("my url " + this.getUrl(this.publicationUrl));
 
@@ -29,6 +29,12 @@ export class PublicationService {
 
  public  getAllPublication<Response>() {
     return this.http.get<Publication[]>(this.getUrl(this.publicationUrl + '/list'));
+
+  }
+
+  public  getAllPublicationByUser<Response>(telephone:any) {
+    console.log('top'+this.getUrl(this.publicationUrl + '/list/mespublications'+`?telephone=${telephone}`));
+    return this.http.get<Publication[]>(this.getUrl(this.publicationUrl + '/list/mespublications'+`?telephone=${telephone}`));
 
   }
 

@@ -19,7 +19,7 @@ export class TagService {
     return this.appConfig.baseApiPath + url;
   }
 
-  public ajouter(tag: Tag): Observable<HttpResponse<Tag>> {
+  public add(tag: Tag): Observable<HttpResponse<Tag>> {
 
     console.log("my url " + this.getUrl(this.tagUrl));
 

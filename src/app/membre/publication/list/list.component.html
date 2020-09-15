@@ -1,32 +1,64 @@
+
+ <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+  <nz-tab  [nzTitle]="'Liste publications'">
+    
 <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead class="thead-dark">
+    <tr>
+     <!--<th scope="col">#</th>--> 
+      <th scope="col">Libelle</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date début</th>
+      <th scope="col">Date expiration</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publication of allPublication">
+      <!--<th scope="row">1</th>-->
+      <td>{{publication.libelle}}</td>
+      <td>{{publication.description}}</td>
+      <td>{{publication.date}}</td>
+      <td>{{publication.expiration}}</td>
+    </tr>
+  </tbody>
+</table>
+
+     </nz-tab>
+  <nz-tab  [nzTitle]="'Mes publications'"> 
+    
+    
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+     <!--<th scope="col">#</th>--> 
+      <th scope="col">Libelle</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date début</th>
+      <th scope="col">Date expiration</th>
+      <th scope="col">Option</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publication of allMyPublication">
+      <!--<th scope="row">1</th>-->
+      <td>{{publication.libelle}}</td>
+      <td>{{publication.description}}</td>
+      <td>{{publication.date}}</td>
+      <td>{{publication.expiration}}</td>
+      <td>       
+        <button class="btn btn-success btn-circle btn-circle-sm m-1"><i class="fa fa-paper-plane"></i></button>
+        <button class="btn btn-danger btn-circle btn-circle-sm m-1"><i class="fa fa-sliders"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
   
+  
+  </nz-tab>
+
+</nz-tabset>
+
+
  

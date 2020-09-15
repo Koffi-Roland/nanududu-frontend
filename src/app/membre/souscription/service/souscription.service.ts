@@ -19,7 +19,7 @@ export class UserService {
     return this.appConfig.baseApiPath + url;
   }
 
-  public souscrire(souscription: Souscription): Observable<HttpResponse<Souscription>> {
+  public add(souscription: Souscription): Observable<HttpResponse<Souscription>> {
 
     console.log("my url " + this.getUrl(this.souscriptionUrl));
 

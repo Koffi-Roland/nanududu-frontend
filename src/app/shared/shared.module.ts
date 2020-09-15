@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAnchorModule } from 'ng-zorro-antd/anchor';
@@ -142,6 +141,7 @@ import { MessageService } from './service/message.service';
     NzUploadModule,
     NzWaveModule,
     NzResizableModule
+    
 
   ],
   exports: [
@@ -209,7 +209,7 @@ import { MessageService } from './service/message.service';
     NzTypographyModule,
     NzUploadModule,
     NzWaveModule,
-    NzResizableModule
+    NzResizableModule,
   ]
 })
 export class SharedModule { }

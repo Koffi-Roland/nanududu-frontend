@@ -19,7 +19,7 @@ export class SosService {
     return this.appConfig.baseApiPath + url;
   }
 
-  public ajouter(sos: Sos): Observable<HttpResponse<Sos>> {
+  public add(sos: Sos): Observable<HttpResponse<Sos>> {
 
     console.log("my url " + this.getUrl(this.sosUrl));
 

@@ -37,6 +37,10 @@ export const routes: Routes = [
                 path: 'sos', loadChildren: () => import('./sos/sos.module').then(m => m.SosModule)
 
             },
+            {
+                path: '**',
+                redirectTo: 'publication'
+              }
 
         ]
     }

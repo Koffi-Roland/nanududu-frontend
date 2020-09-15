@@ -20,7 +20,7 @@ export class UserService {
     return this.appConfig.baseApiPath + url;
   }
 
-  public ajouter(user: User): Observable<HttpResponse<User>> {
+  public add(user: User): Observable<HttpResponse<User>> {
 
     console.log("my url " + this.getUrl(this.userUrl));
 

@@ -5,6 +5,7 @@ import { UploadFile } from 'ng-zorro-antd/upload';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Publication } from '../model/publication';
 import { PublicationService } from '../service/publication.service';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-create',
@@ -16,8 +17,10 @@ export class CreateComponent implements OnInit {
   loading = false;
   avatarUrl?: string;
   publication: Publication = new Publication(null);
-
-  constructor(private publicationService: PublicationService,private fb: FormBuilder,private msg: NzMessageService) { }
+  _msg:any;
+  verifSuccessMsg=false;
+  verifErrorMsg=false;
+  constructor(private publicationService: PublicationService,private fb: FormBuilder,private msg: NzMessageService,private loginService :LoginService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -31,18 +34,28 @@ export class CreateComponent implements OnInit {
   }
   submitForm(): void {
     console.log(this.validateForm.value);
+    for (const key in this.validateForm.controls) {
+      this.validateForm.controls[key].markAsDirty();
+      this.validateForm.controls[key].updateValueAndValidity();
+    }
     this.publication.libelle= this.validateForm.controls['libelle'].value;
     this.publication.description=this.validateForm.controls['description'].value;;
     this.publication.date=this.validateForm.controls['date'].value;
-    this.publication.date=this.validateForm.controls['expiration'].value;
+    this.publication.expiration=this.validateForm.controls['expiration'].value;
+    this.publication.personne=this.loginService.getUser().data.telephone;
 
+    console.log(this.loginService.getUser().data.telephone);
     console.log(JSON.stringify(this.publication));
     try {
-      this.publicationService.ajouter(this.publication).subscribe(
+      this.publicationService.add(this.publication).subscribe(
         res => {
           this.validateForm.reset();
+          this._msg="Ajout effectué avec success";
+          this.verifSuccessMsg=true;
           console.log(res);
         }, error => {
+          this.verifErrorMsg=true;
+          this._msg="Erreur d'execution de la requête. Veuillez verifier vos informations";
           console.error(error);
         }
       );
@@ -86,7 +99,6 @@ export class CreateComponent implements OnInit {
         this.loading = true;
         break;
       case 'done':
-        // Get this url from response in real world.
         this.getBase64(info.file!.originFileObj!, (img: string) => {
           this.loading = false;
           this.avatarUrl = img;

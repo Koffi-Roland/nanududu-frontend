@@ -9,7 +9,7 @@ export class MessageService {
 
 
   messageSuccess(content:string){
-    this.message.success(content,{ nzDuration: 2500 });
+    this.message.success(content,{ nzDuration: 2500});
   }
 
   messageError(content:string){

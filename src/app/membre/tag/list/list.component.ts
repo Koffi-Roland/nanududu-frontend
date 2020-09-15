@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tag } from '../model/tag';
+import { TagService } from '../service/tag.service';
 
 
 @Component({
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
-  constructor() { }
-
+  statusCode:any;
+  allTag:Tag[];
+  constructor(private tagService:TagService) { }
   ngOnInit(): void {
+    this.getAllTag();
   }
 
+  getAllTag():Tag[]{
+    this.tagService.getAllTag()
+    .subscribe(
+      data => this.allTag = data,
+      errorCode => this.statusCode = errorCode);
+  return this.allTag;
+  }
 
 }

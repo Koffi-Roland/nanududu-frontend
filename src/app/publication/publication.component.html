@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="container-fluid mt-5">
 
-<div nz-row  *ngFor="let publication of allPublication" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }" >
-  <div nz-col class="gutter-row " [nzSpan]="6" style="margin-bottom:50px;">
-      <nz-card  [nzCover]="coverTemplate"
+<div nz-row   [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }" >
+  <div nz-col *ngFor="let publication of allPublication" class="gutter-row " [nzSpan]="6" style="margin-bottom:50px;width:300px;">
+      <nz-card   [nzCover]="coverTemplate"
           [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
           <nz-card-meta nzTitle="{{publication.libelle}}" nzDescription="{{publication.description}}" [nzAvatar]="avatarTemplate">
           </nz-card-meta>
