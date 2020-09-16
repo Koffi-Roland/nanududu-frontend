@@ -1,5 +1,5 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">LOGO</a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-nanududu">
+  <a class="navbar-brand"  [routerLink]="['/accueil']"><img class="img-responsive" height="40" src="assets/images/logo-nanududu.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false"
     aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,8 @@
     </ul>
 
     <ul *ngIf="connected" class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/membre']"> Espace membre </a></li>
+
 
       <li class="nav-item dropdown">
         <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Profil </a>
